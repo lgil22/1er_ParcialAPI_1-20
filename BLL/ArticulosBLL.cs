@@ -80,14 +80,14 @@ namespace _1er_ParcialAPI_1_20.BLL
             return paso;
         }
 
-        public static Articulos Buscar(int id)
+    /*   public static Articulos Buscar(int id)
         {
             Contexto db = new Contexto();
             Articulos articulos = new Articulos();
             try
             {
                 articulos = db.Articulos.Find(id);
-          
+
             }
             catch (Exception)
             {
@@ -98,9 +98,10 @@ namespace _1er_ParcialAPI_1_20.BLL
                 db.Dispose();
             }
             return articulos;
-        }
+        }*/
 
-        public static List<Articulos> GetList(Expression<Func<Articulos, bool>> articulos)
+
+     /*   public static List<Articulos> GetList(Expression<Func<Articulos, bool>> articulos)
         {
             List<Articulos> Lista = new List<Articulos>();
             Contexto db = new Contexto();
@@ -117,7 +118,7 @@ namespace _1er_ParcialAPI_1_20.BLL
                 db.Dispose();
             }
             return Lista;
-        }
+        }*/
     }
 }
 
