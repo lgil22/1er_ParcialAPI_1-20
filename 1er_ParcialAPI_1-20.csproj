@@ -9,8 +9,8 @@
 
   <ItemGroup>
     <Folder Include="DAL\Scripts\" />
-    <Folder Include="NewFolder2\" />
-    <Folder Include="NewFolder3\" />
+    <Folder Include="Entidades\" />
+    <Folder Include="Sources\" />
     <Folder Include="NewFolder4\" />
     <Folder Include="NewFolder5\" />
     <Folder Include="BLL\" />
