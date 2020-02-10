@@ -11,7 +11,6 @@
     <Folder Include="DAL\Scripts\" />
     <Folder Include="Resources\" />
     <Folder Include="UI\Reportes\" />
-    <Folder Include="UI\NewFolder2\" />
     <Folder Include="UI\Consultas\" />
   </ItemGroup>
 

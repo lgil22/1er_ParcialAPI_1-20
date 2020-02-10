@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:_1er_ParcialAPI_1_20"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="350" Width="700">
     <Grid>
         <Menu>
-            <MenuItem Header="Registros">
+            <MenuItem Header="Registros" Click="MenuItem_Click">
                 <MenuItem Header="Articulos"/>
             </MenuItem>
         </Menu>

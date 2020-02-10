@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using _1er_ParcialAPI_1_20.UI.Registros;
+//using _1er_ParcialAPI_1_20.UI.Consultas;
 
 namespace _1er_ParcialAPI_1_20
 {
@@ -23,6 +25,12 @@ namespace _1er_ParcialAPI_1_20
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            rArticulos rarticulos = new rArticulos();
+            rarticulos.Show();
         }
     }
 }
