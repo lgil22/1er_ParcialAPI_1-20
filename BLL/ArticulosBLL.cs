@@ -80,7 +80,7 @@ namespace _1er_ParcialAPI_1_20.BLL
             return paso;
         }
 
-    /   public static Articulos Buscar(int id)
+       public static Articulos Buscar(int id)
         {
             Contexto db = new Contexto();
             Articulos articulos = new Articulos();

@@ -28,7 +28,7 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
             ValinvetTextBox.Text = "0";
         }
 
-        private void Llenaclase()
+        private Articulos LlenaClase()
         {
             Articulos articulos = new Articulos();
             articulos.ProductoId = Convert.ToInt32(IdTextBox.Text);
@@ -37,7 +37,7 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
             articulos.Costo = Convert.ToInt32(CostoTextBox.Text);
             articulos.ValorInventario = Convert.ToInt32(ValinvetTextBox.Text);
 
-            //return articulos;
+            return articulos;
         }
 
         private void LlenaCampo(Articulos articulos)
@@ -88,7 +88,61 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
 
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
+            int id;
+            Articulos articulo = new Articulos();
+            int.TryParse(IdTextBox.Text, out id);
 
+            Limpiar();
+
+            articulo = ArticulosBLL.Buscar(id);
+
+            if (articulo != null)
+            {
+                MessageBox.Show("Articulo Encontrado");
+                LlenaCampo(articulo);
+            }
+
+            else
+            {
+                MessageBox.Show("Articulo no Encontrado");
+            }
+
+        }
+
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Articulos articulos;
+            bool paso = false;
+
+            if (!Validar())
+                return;
+
+            articulos = LlenaClase();
+
+            //if (idTextBox.Text.ToInt() == 0)
+
+            if (string.IsNullOrWhiteSpace(IdTextBox.Text) || IdTextBox.Text == "0")
+                paso = ArticulosBLL.Guardar(articulos);
+            else
+            {
+                if (!ExisteEnLaBaseDeDatos())
+                {
+                    MessageBox.Show("No se puede modificar un articulo que no existe", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                paso = ArticulosBLL.Modificar(articulos);
+            }
+
+            //Informar el resultado
+            if (paso)
+                MessageBox.Show("Guardado!!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void NuevoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
         }
     }
 }
