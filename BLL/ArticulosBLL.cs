@@ -101,7 +101,7 @@ namespace _1er_ParcialAPI_1_20.BLL
         }
 
 
-     /*   public static List<Articulos> GetList(Expression<Func<Articulos, bool>> articulos)
+       public static List<Articulos> GetList(Expression<Func<Articulos, bool>> articulos)
         {
             List<Articulos> Lista = new List<Articulos>();
             Contexto db = new Contexto();
@@ -118,7 +118,7 @@ namespace _1er_ParcialAPI_1_20.BLL
                 db.Dispose();
             }
             return Lista;
-        }*/
+        }
     }
 }
 
