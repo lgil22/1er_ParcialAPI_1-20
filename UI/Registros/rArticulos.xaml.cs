@@ -144,5 +144,18 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
         {
             Limpiar();
         }
+
+        private void EliminarButton_Click(object sender, RoutedEventArgs e)
+        {
+            int id;
+            int.TryParse(IdTextBox.Text, out id);
+
+            Limpiar();
+
+            if (ArticulosBLL.Eliminar(id))
+                MessageBox.Show("Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            else
+                MessageBox.Show(IdTextBox.Text, "No se puede eliminar una articulo que no existe");
+        }
     }
 }
