@@ -20,7 +20,7 @@ namespace _1er_ParcialAPI_1_20.BLL
             Contexto db = new Contexto();
             try
             {
-                if (db.Personas.Add(articulos) != null)
+                if (db.Articulos.Add(articulos) != null)
                     paso = db.SaveChanges() > 0;
             }
             catch (Exception)
@@ -63,7 +63,7 @@ namespace _1er_ParcialAPI_1_20.BLL
             Contexto db = new Contexto();
             try
             {
-                var eliminar = db.Personas.Find(id);
+                var eliminar = db.Articulos.Find(id);
                 db.Entry(eliminar).State = EntityState.Deleted;
 
                 paso = (db.SaveChanges() > 0);
@@ -80,7 +80,7 @@ namespace _1er_ParcialAPI_1_20.BLL
             return paso;
         }
 
-    /*   public static Articulos Buscar(int id)
+    /   public static Articulos Buscar(int id)
         {
             Contexto db = new Contexto();
             Articulos articulos = new Articulos();
@@ -98,7 +98,7 @@ namespace _1er_ParcialAPI_1_20.BLL
                 db.Dispose();
             }
             return articulos;
-        }*/
+        }
 
 
      /*   public static List<Articulos> GetList(Expression<Func<Articulos, bool>> articulos)

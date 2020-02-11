@@ -15,7 +15,8 @@ namespace _1er_ParcialAPI_1_20.DAL.Scripts
 {
     public class Contexto : DbContext
     {
-        public DbSet<Articulos> Personas { get; set; }
+
+        public DbSet<Articulos> Articulos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
