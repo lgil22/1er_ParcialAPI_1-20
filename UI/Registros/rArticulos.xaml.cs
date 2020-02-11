@@ -6,6 +6,8 @@ using _1er_ParcialAPI_1_20.BLL;
 using _1er_ParcialAPI_1_20.UI.Registros;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
+using _1er_ParcialAPI_1_20.UI;
+using System.Linq;
 
 namespace _1er_ParcialAPI_1_20.UI.Registros
 {
@@ -35,7 +37,7 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
             articulos.Descripcion = DescripTextBox.Text;
             articulos.Existencia = Convert.ToInt32(ExistTextBox.Text);
             articulos.Costo = Convert.ToInt32(CostoTextBox.Text);
-            articulos.ValorInventario = Convert.ToInt32(ValinvetTextBox.Text);
+            articulos.ValorInventario = Convert.ToInt16(ValinvetTextBox.Text);
 
             return articulos;
         }
@@ -156,6 +158,11 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             else
                 MessageBox.Show(IdTextBox.Text, "No se puede eliminar una articulo que no existe");
+        }
+
+        private void CostoTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           ValinvetTextBox.Text = Convert.ToString(Convert.ToDouble(CostoTextBox.Text) * (Convert.ToDouble(ExistTextBox.Text)));
         }
     }
 }
