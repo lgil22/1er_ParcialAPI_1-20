@@ -121,7 +121,7 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
 
             articulos = LlenaClase();
 
-            //if (idTextBox.Text.ToInt() == 0)
+            if (IdTextBox.Text.ToInt() == 0)
 
             if (string.IsNullOrWhiteSpace(IdTextBox.Text) || IdTextBox.Text == "0")
                 paso = ArticulosBLL.Guardar(articulos);
