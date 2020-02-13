@@ -14,7 +14,7 @@
         <Label x:Name="ValinventLabel" Content="Valor Inventario" HorizontalAlignment="Left" Margin="26,149,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="IdTextBox" HorizontalAlignment="Left" Margin="126,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="DescripTextBox" HorizontalAlignment="Left" Margin="126,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="ExistTextBox" HorizontalAlignment="Left" Margin="126,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="ExistTextBox" HorizontalAlignment="Left" Margin="126,91,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="ExistTextBox_TextChanged"/>
         <TextBox x:Name="CostoTextBox" HorizontalAlignment="Left" Margin="126,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="CostoTextBox_TextChanged"/>
         <TextBox x:Name="ValinvetTextBox" HorizontalAlignment="Left" Margin="126,149,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="NuevoButton" Content="Nuevo" HorizontalAlignment="Left" Margin="67,229,0,0" VerticalAlignment="Top" Click="NuevoButton_Click"/>

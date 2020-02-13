@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using _1er_ParcialAPI_1_20.UI;
 using System.Linq;
 
+
 namespace _1er_ParcialAPI_1_20.UI.Registros
 {
     /// <summary>
@@ -35,9 +36,9 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
             Articulos articulos = new Articulos();
             articulos.ProductoId = Convert.ToInt32(IdTextBox.Text);
             articulos.Descripcion = DescripTextBox.Text;
-            articulos.Existencia = Convert.ToInt32(ExistTextBox.Text);
-            articulos.Costo = Convert.ToInt32(CostoTextBox.Text);
-            articulos.ValorInventario = Convert.ToInt16(ValinvetTextBox.Text);
+            articulos.Existencia = Convert.ToDecimal(ExistTextBox.Text);
+            articulos.Costo = Convert.ToDecimal(CostoTextBox.Text);
+            articulos.ValorInventario = Convert.ToDecimal(ValinvetTextBox.Text);
 
             return articulos;
         }
@@ -46,16 +47,18 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
         {
             IdTextBox.Text = Convert.ToString(articulos.ProductoId);
             DescripTextBox.Text = articulos.Descripcion;
-            ExistTextBox.Text = Convert.ToString( articulos.Existencia);
-            CostoTextBox.Text = Convert.ToString(articulos.Costo);
+            ExistTextBox.Text = Convert.ToString(articulos.Existencia);
+            CostoTextBox.Text = "1";
+                
+                //Convert.ToString(articulos.Costo);
             ValinvetTextBox.Text = Convert.ToString(articulos.ValorInventario);
 
         }
 
         private bool ExisteEnLaBaseDeDatos()
         {
-            Articulos personas = ArticulosBLL.Buscar((int)IdTextBox.Text.ToInt());
-            return (personas != null);
+            Articulos articulos = ArticulosBLL.Buscar((int)IdTextBox.Text.ToInt());
+            return (articulos != null);
         }
 
         private bool Validar()
@@ -91,17 +94,17 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
         private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
             int id;
-            Articulos articulo = new Articulos();
+            Articulos articulos = new Articulos();
             int.TryParse(IdTextBox.Text, out id);
 
             Limpiar();
 
-            articulo = ArticulosBLL.Buscar(id);
+            articulos = ArticulosBLL.Buscar(id);
 
-            if (articulo != null)
+            if (articulos != null)
             {
                 MessageBox.Show("Articulo Encontrado");
-                LlenaCampo(articulo);
+                LlenaCampo(articulos);
             }
 
             else
@@ -160,9 +163,38 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
                 MessageBox.Show(IdTextBox.Text, "No se puede eliminar una articulo que no existe");
         }
 
+        private void ExistTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // decimal costo;
+            //  decimal.TryParse(CostoTextBox.Text, out resultado);
+
+            //Utilidad u = new Utilidad();
+             try
+             {
+                 ValinvetTextBox.Text = (decimal.Parse(ExistTextBox.Text) * decimal.Parse(CostoTextBox.Text)).ToString();
+             }
+             catch
+             {
+
+             }
+
+           /* decimal costo = Convert.ToDecimal(CostoTextBox.Text);
+            decimal existe = Convert.ToDecimal(ExistTextBox.Text);
+            decimal resultado = costo * existe;
+            ValinvetTextBox.Text = resultado.ToString();*/
+        }
+
         private void CostoTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-           ValinvetTextBox.Text = Convert.ToString(Convert.ToDouble(CostoTextBox.Text) * (Convert.ToDouble(ExistTextBox.Text)));
+           try
+            {
+                ValinvetTextBox.Text = (decimal.Parse(ExistTextBox.Text) * decimal.Parse(CostoTextBox.Text)).ToString();
+            }
+            catch
+            {
+
+            }
+
         }
     }
 }
