@@ -39,7 +39,6 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
             articulos.Existencia = Convert.ToDecimal(ExistTextBox.Text);
             articulos.Costo = Convert.ToDecimal(CostoTextBox.Text);
             articulos.ValorInventario = Convert.ToDecimal(ValinvetTextBox.Text);
-
             return articulos;
         }
 
@@ -48,9 +47,7 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
             IdTextBox.Text = Convert.ToString(articulos.ProductoId);
             DescripTextBox.Text = articulos.Descripcion;
             ExistTextBox.Text = Convert.ToString(articulos.Existencia);
-            CostoTextBox.Text = "1";
-                
-                //Convert.ToString(articulos.Costo);
+            CostoTextBox.Text = Convert.ToString(articulos.Costo);
             ValinvetTextBox.Text = Convert.ToString(articulos.ValorInventario);
 
         }
@@ -165,30 +162,34 @@ namespace _1er_ParcialAPI_1_20.UI.Registros
 
         private void ExistTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            // decimal costo;
-            //  decimal.TryParse(CostoTextBox.Text, out resultado);
-
-            //Utilidad u = new Utilidad();
+            
              try
              {
-                 ValinvetTextBox.Text = (decimal.Parse(ExistTextBox.Text) * decimal.Parse(CostoTextBox.Text)).ToString();
-             }
-             catch
+                decimal costo = Convert.ToDecimal(CostoTextBox.Text);
+                decimal existe = Convert.ToDecimal(ExistTextBox.Text);
+                decimal resultado = costo * existe;
+                ValinvetTextBox.Text = resultado.ToString();
+
+                ///ValinvetTextBox.Text = (decimal.Parse(ExistTextBox.Text) * decimal.Parse(CostoTextBox.Text)).ToString();
+            }
+            catch
              {
 
              }
 
-           /* decimal costo = Convert.ToDecimal(CostoTextBox.Text);
-            decimal existe = Convert.ToDecimal(ExistTextBox.Text);
-            decimal resultado = costo * existe;
-            ValinvetTextBox.Text = resultado.ToString();*/
         }
 
         private void CostoTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
            try
             {
-                ValinvetTextBox.Text = (decimal.Parse(ExistTextBox.Text) * decimal.Parse(CostoTextBox.Text)).ToString();
+
+                decimal costo = Convert.ToDecimal(CostoTextBox.Text);
+                decimal existe = Convert.ToDecimal(ExistTextBox.Text);
+                decimal resultado = costo * existe;
+                ValinvetTextBox.Text = resultado.ToString();
+
+               // ValinvetTextBox.Text = (decimal.Parse(ExistTextBox.Text) * decimal.Parse(CostoTextBox.Text)).ToString();
             }
             catch
             {
